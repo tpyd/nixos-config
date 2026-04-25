@@ -46,7 +46,6 @@
                             fastfetch
                             keepassxc
                             discord
-                            steam
                         ];
 
                         xdg.configFile = {

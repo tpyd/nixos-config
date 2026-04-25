@@ -102,6 +102,9 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Install Steam, needs to be system install for the best experience for now
+  programs.steam.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [
@@ -112,12 +115,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-    # discord
-    # keepassxc
-    # fastfetch  # TODO remove these
-
     home-manager 
   ];
 
@@ -147,5 +144,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }
