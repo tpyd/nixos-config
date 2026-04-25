@@ -1,0 +1,7 @@
+[user]
+    name = tpyd
+    email = 112725276+tpyd@users.noreply.github.com
+[init]
+    defaultBranch = main
+[core]
+    editor = nvim
