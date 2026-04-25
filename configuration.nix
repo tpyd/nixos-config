@@ -57,6 +57,7 @@
   services.xserver.xkb = {
     layout = "no";
     variant = "";
+    options = "ctrl:nocaps";
   };
 
   # Configure console keymap
@@ -113,9 +114,9 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-    discord
-    keepassxc
-    fastfetch  # TODO remove these
+    # discord
+    # keepassxc
+    # fastfetch  # TODO remove these
 
     home-manager 
   ];

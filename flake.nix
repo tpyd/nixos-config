@@ -28,6 +28,8 @@
                 {
                     home-manager.users.hades = { pkgs, ... }: {
                         home.stateVersion = "26.05";
+                        nixpkgs.config.allowUnfree = true;
+
                         home.packages = with pkgs; [ 
                             alacritty
                             fish
@@ -40,6 +42,11 @@
                             gcc  # Required for compiling treesitter parsers
                             fzf  # Required by file picker fzf-lua
                             tree-sitter  # Needed for Neovim tree-sitter support after rewrite
+
+                            fastfetch
+                            keepassxc
+                            discord
+                            steam
                         ];
 
                         xdg.configFile = {
