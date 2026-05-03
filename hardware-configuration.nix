@@ -14,19 +14,24 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4f4fa686-6f9a-4e67-b1a2-79640f7a88a6";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/9d2ed3c3-16f0-4d7f-9ca9-762edcde904f";
+      fsType = "btrfs";
+      options = [ "subvol=@" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/9d2ed3c3-16f0-4d7f-9ca9-762edcde904f";
+      fsType = "btrfs";
+      options = [ "subvol=@home" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/D8EA-EDBC";
+    { device = "/dev/disk/by-uuid/2E2D-7C8C";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/b5d302c3-77bd-4088-a0d0-1b4c60955967"; }
-    ];
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

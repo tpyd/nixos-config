@@ -48,6 +48,7 @@
                             fastfetch
                             keepassxc
                             lmstudio
+			    proton-vpn
                         ];
 
                         xdg.configFile = {
