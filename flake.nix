@@ -48,7 +48,9 @@
                             fastfetch
                             keepassxc
                             lmstudio
-			    proton-vpn
+			    obsidian
+			    openttd
+			    proton-vpn-cli
                         ];
 
                         xdg.configFile = {
