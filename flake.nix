@@ -47,6 +47,7 @@
                             discord
                             fastfetch
                             keepassxc
+			    libreoffice
                             lmstudio
 			    obsidian
 			    openttd
