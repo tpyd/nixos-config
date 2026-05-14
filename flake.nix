@@ -43,6 +43,7 @@
                             fzf  # Required by file picker fzf-lua
                             tree-sitter  # Needed for Neovim tree-sitter support after rewrite
 
+			    blender
                             bottles
                             discord
                             fastfetch
@@ -52,6 +53,7 @@
 			    obsidian
 			    openttd
 			    proton-vpn-cli
+			    yt-dlp
                         ];
 
                         xdg.configFile = {
