@@ -116,6 +116,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     home-manager 
+    gamescope
+    gamescope-wsi
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
