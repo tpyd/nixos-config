@@ -2,7 +2,8 @@
     description = "Flakes file. Sort of like third party packages for NixOS configuration";
 
     inputs = {
-        # Requirement for everything
+        # Requirement for everything. NOTE: Its possible to selectively use stable and unstable
+	# for fine-grained control
         nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
         # Allows configuration of applications and their config files using NixOS configuration
@@ -53,6 +54,7 @@
 			    obsidian
 			    openttd
 			    proton-vpn-cli
+			    vlc
 			    yt-dlp
                         ];
 
