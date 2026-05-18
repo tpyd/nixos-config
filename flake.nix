@@ -45,7 +45,6 @@
                             tree-sitter  # Needed for Neovim tree-sitter support after rewrite
 
 			    blender
-                            bottles
                             discord
                             fastfetch
                             keepassxc
