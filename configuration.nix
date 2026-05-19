@@ -125,6 +125,7 @@
       enable = true;
       libraries = with pkgs; [
           lua-language-server
+          rust-analyzer
       ];
   };
 

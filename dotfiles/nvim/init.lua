@@ -31,7 +31,12 @@ vim.pack.add({
     "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
     "https://github.com/mason-org/mason.nvim",
     "https://github.com/neovim/nvim-lspconfig",
-    "https://github.com/mason-org/mason-lspconfig.nvim"
+    "https://github.com/mason-org/mason-lspconfig.nvim",
+    "https://github.com/nvim-tree/nvim-web-devicons",
+    "https://github.com/nvim-lualine/lualine.nvim",
+    "https://github.com/folke/lazydev.nvim",
+    "https://github.com/saghen/blink.lib",
+    "https://github.com/saghen/blink.cmp"
 })
 
 -- Set colorscheme
@@ -74,15 +79,70 @@ vim.keymap.set({"x", "o"}, "if", function() textobjects.select_textobject("@func
 vim.keymap.set({"x", "o"}, "ac", function() textobjects.select_textobject("@class.outer", "textobjects") end)
 vim.keymap.set({"x", "o"}, "ic", function() textobjects.select_textobject("@class.inner", "textobjects") end)
 
+-- Set up lualine
+require("lualine").setup({})
+
+-- Set up lazydev
+require("lazydev").setup({})
+
+-- Set up completion
+local cmp = require("blink.cmp")
+cmp.build():wait(60000)
+cmp.setup({
+    sources = {
+        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+        providers = {
+            lazydev = {
+                name = "LazyDev",
+                module = "lazydev.integrations.blink",
+                score_offset = 100,
+            }
+        }
+    },
+    completion = {
+        documentation = {
+            auto_show = true,
+            auto_show_delay_ms = 0
+        },
+        list = {
+            selection = {
+                auto_insert = false
+            }
+        }
+    }
+})
+
 -- Set up LSPs
 require("mason").setup({})
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "lua_ls"
+        "lua_ls",
+        "rust_analyzer"
     }
+})
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+        local bufnr = args.buf
+        local opts = { noremap = true, buffer = bufnr }
+
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+        vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+        vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
+        vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+        vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+    end
 })
 
 -- NOTE: The executables must be added to nix-ld if running NixOS
 vim.lsp.enable({
-    "lua_ls"
+    "lua_ls",
+    "rust_analyzer"
 })

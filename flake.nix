@@ -45,6 +45,7 @@
                             tree-sitter  # Needed for Neovim tree-sitter support after rewrite
 
                             blender
+                            btop
                             discord
                             fastfetch
                             keepassxc
@@ -53,6 +54,7 @@
                             obsidian
                             openttd
                             proton-vpn-cli
+                            rustup
                             vlc
                             yt-dlp
                         ];
