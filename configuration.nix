@@ -120,6 +120,14 @@
     gamescope-wsi
   ];
 
+  # Exceptions for LSPs installed with Neovim (Mason)
+  programs.nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+          lua-language-server
+      ];
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

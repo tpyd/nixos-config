@@ -3,7 +3,7 @@
 
     inputs = {
         # Requirement for everything. NOTE: Its possible to selectively use stable and unstable
-	# for fine-grained control
+        # for fine-grained control
         nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
         # Allows configuration of applications and their config files using NixOS configuration
@@ -44,23 +44,24 @@
                             fzf  # Required by file picker fzf-lua
                             tree-sitter  # Needed for Neovim tree-sitter support after rewrite
 
-			    blender
+                            blender
                             discord
                             fastfetch
                             keepassxc
-			    libreoffice
+                            libreoffice
                             lmstudio
-			    obsidian
-			    openttd
-			    proton-vpn-cli
-			    vlc
-			    yt-dlp
+                            obsidian
+                            openttd
+                            proton-vpn-cli
+                            vlc
+                            yt-dlp
                         ];
 
                         xdg.configFile = {
                             "alacritty/alacritty.toml".source = ./dotfiles/alacritty/alacritty.toml;
                             "fish/config.fish".source = ./dotfiles/fish/config.fish;
                             "git/config".source = ./dotfiles/git/config;
+                            "nvim/init.lua".source = ./dotfiles/nvim/init.lua;
                             "tmux/tmux.conf".source = ./dotfiles/tmux/tmux.conf;
                         };
                     };
