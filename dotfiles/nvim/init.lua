@@ -47,11 +47,24 @@ vim.pack.add({
 })
 
 -- Set colorscheme
-require("gruvbox").setup({
-    transparent_mode = true,
-    overrides = { Pmenu = { link = "Normal" } }  -- https://github.com/ellisonleao/gruvbox.nvim/issues/406
-})
-vim.cmd.colorscheme("gruvbox")
+local gruvbox = require("gruvbox")
+
+vim.api.nvim_create_user_command("ThemeDark", function()
+    vim.o.background = "dark"
+    gruvbox.setup({
+        transparent_mode = true,
+        overrides = { Pmenu = { link = "Normal" } }  -- https://github.com/ellisonleao/gruvbox.nvim/issues/406
+    })
+    vim.cmd.colorscheme("gruvbox")
+end, {})
+
+vim.api.nvim_create_user_command("ThemeLight", function()
+    vim.o.background = "light"
+    gruvbox.setup({})
+    vim.cmd.colorscheme("gruvbox")
+end, {})
+
+vim.cmd("ThemeDark")
 
 -- Set up fzf keymaps
 local fzf = require("fzf-lua")
