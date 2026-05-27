@@ -24,6 +24,13 @@ vim.opt.termguicolors = true
 vim.opt.virtualedit = "block"
 vim.opt.winborder = "rounded"
 
+-- Formatoptions has no global option, its only local to buffer
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        vim.opt.formatoptions:remove { "c", "r", "o" }
+    end,
+})
+
 vim.pack.add({
     "https://github.com/ellisonleao/gruvbox.nvim",
     "https://github.com/ibhagwan/fzf-lua",

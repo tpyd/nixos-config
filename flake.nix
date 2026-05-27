@@ -44,6 +44,9 @@
                             fzf  # Required by file picker fzf-lua
                             tree-sitter  # Needed for Neovim tree-sitter support after rewrite
 
+                            fd
+                            ripgrep
+
                             blender
                             btop
                             discord
