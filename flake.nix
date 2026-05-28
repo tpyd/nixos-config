@@ -51,6 +51,7 @@
                             btop
                             discord
                             fastfetch
+                            gimp
                             keepassxc
                             libreoffice
                             lmstudio
