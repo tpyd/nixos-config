@@ -7,6 +7,10 @@ vim.diagnostic.config({
 })
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
+vim.keymap.set("n", "gj", "j")
+vim.keymap.set("n", "gk", "k")
 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.expandtab = true
@@ -21,6 +25,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
+vim.opt.timeout = false
 vim.opt.virtualedit = "block"
 vim.opt.winborder = "rounded"
 
@@ -47,24 +52,12 @@ vim.pack.add({
 })
 
 -- Set colorscheme
-local gruvbox = require("gruvbox")
-
-vim.api.nvim_create_user_command("ThemeDark", function()
-    vim.o.background = "dark"
-    gruvbox.setup({
-        transparent_mode = true,
-        overrides = { Pmenu = { link = "Normal" } }  -- https://github.com/ellisonleao/gruvbox.nvim/issues/406
-    })
-    vim.cmd.colorscheme("gruvbox")
-end, {})
-
-vim.api.nvim_create_user_command("ThemeLight", function()
-    vim.o.background = "light"
-    gruvbox.setup({})
-    vim.cmd.colorscheme("gruvbox")
-end, {})
-
-vim.cmd("ThemeDark")
+vim.o.background = "dark"
+require("gruvbox").setup({
+    transparent_mode = true,
+    overrides = { Pmenu = { link = "Normal" } }  -- https://github.com/ellisonleao/gruvbox.nvim/issues/406
+})
+vim.cmd.colorscheme("gruvbox")
 
 -- Set up fzf keymaps
 local fzf = require("fzf-lua")
