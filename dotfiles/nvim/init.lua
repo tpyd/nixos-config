@@ -65,6 +65,7 @@ vim.keymap.set("n", "<leader>pf", fzf.files)
 vim.keymap.set("n", "<leader>pg", fzf.live_grep)
 vim.keymap.set("n", "<leader>pb", fzf.buffers)
 vim.keymap.set("n", "<leader>pm", fzf.marks)
+vim.keymap.set("n", "<leader>pd", fzf.lsp_workspace_diagnostics)
 
 -- Automatically install treesitter parser and enable it
 vim.api.nvim_create_autocmd("FileType", {
@@ -130,7 +131,8 @@ require("mason").setup({})
 require("mason-lspconfig").setup({
     ensure_installed = {
         "lua_ls",
-        "rust_analyzer"
+        "rust_analyzer",
+        "nil_ls"
     }
 })
 
@@ -157,5 +159,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- NOTE: The executables must be added to nix-ld if running NixOS
 vim.lsp.enable({
     "lua_ls",
-    "rust_analyzer"
+    "rust_analyzer",
+    "nil_ls"
 })
