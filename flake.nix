@@ -43,15 +43,15 @@
                             gcc  # Required for compiling treesitter parsers
                             fzf  # Required by file picker fzf-lua
                             tree-sitter  # Needed for Neovim tree-sitter support after rewrite
-
-                            fd
-                            ripgrep
+                            fd  # fzf-lua optional dependency
+                            ripgrep  # fzf-lua optional dependency
 
                             blender
                             btop
                             discord
                             fastfetch
                             gimp
+                            jujutsu
                             keepassxc
                             libreoffice
                             lmstudio
