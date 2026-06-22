@@ -59,6 +59,7 @@
                             openttd
                             proton-vpn
                             rustup
+                            signal-desktop
                             vlc
                             yt-dlp
                         ];
