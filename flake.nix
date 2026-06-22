@@ -57,7 +57,7 @@
                             lmstudio
                             obsidian
                             openttd
-                            proton-vpn-cli
+                            proton-vpn
                             rustup
                             vlc
                             yt-dlp
@@ -70,6 +70,21 @@
                             "nvim/init.lua".source = ./dotfiles/nvim/init.lua;
                             "nvim/nvim-pack-lock.json".source = ./dotfiles/nvim/nvim-pack-lock.json;
                             "tmux/tmux.conf".source = ./dotfiles/tmux/tmux.conf;
+                        };
+
+                        # Automatically start Proton VPN
+                        systemd.user.services."protonvpn-app" = {
+                            Unit = {
+                                Description = "Proton VPN";
+                            };
+                            Service = {
+                                ExecStart = "${pkgs.proton-vpn}/bin/protonvpn-app";
+                                Restart = "on-failure";
+                                RestartSec = "5s";
+                            };
+                            Install = {
+                                WantedBy = [ "graphical-session.target" ];
+                            };
                         };
                     };
                 }
