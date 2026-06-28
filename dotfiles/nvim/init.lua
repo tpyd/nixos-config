@@ -12,7 +12,6 @@ vim.keymap.set("n", "k", "gk")
 vim.keymap.set("n", "gj", "j")
 vim.keymap.set("n", "gk", "k")
 
-vim.opt.clipboard = "unnamedplus"
 vim.opt.expandtab = true
 vim.opt.ignorecase = true
 vim.opt.inccommand = "split"
