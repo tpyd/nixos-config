@@ -7,10 +7,10 @@ vim.diagnostic.config({
 })
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "j", "gj")
-vim.keymap.set("n", "k", "gk")
-vim.keymap.set("n", "gj", "j")
-vim.keymap.set("n", "gk", "k")
+vim.keymap.set({ "n", "v"}, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+vim.keymap.set({ "n", "v"}, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
+vim.keymap.set({ "n", "v"}, "gj", "j")
+vim.keymap.set({ "n", "v"}, "gk", "k")
 
 vim.opt.expandtab = true
 vim.opt.ignorecase = true
