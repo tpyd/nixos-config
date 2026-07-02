@@ -100,7 +100,7 @@ require("lazydev").setup({})
 
 -- Set up completion
 local cmp = require("blink.cmp")
-cmp.build():wait(60000)
+cmp.build():pwait(60000)
 cmp.setup({
     sources = {
         default = { "lazydev", "lsp", "path", "snippets", "buffer" },
