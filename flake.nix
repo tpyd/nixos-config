@@ -68,6 +68,7 @@
                             "alacritty/alacritty.toml".source = ./dotfiles/alacritty/alacritty.toml;
                             "fish/config.fish".source = ./dotfiles/fish/config.fish;
                             "git/config".source = ./dotfiles/git/config;
+                            "jj/config.toml".source = ./dotfiles/jj/config.toml;
                             "nvim/init.lua".source = ./dotfiles/nvim/init.lua;
                             "nvim/nvim-pack-lock.json".source = ./dotfiles/nvim/nvim-pack-lock.json;
                             "tmux/tmux.conf".source = ./dotfiles/tmux/tmux.conf;
