@@ -1,4 +1,4 @@
-{ self, config, pkgs, home-manager }: {
+{ home-manager, ... }: {
 
     imports = [
         home-manager.nixosModules.home-manager
@@ -9,38 +9,45 @@
         nixpkgs.config.allowUnfree = true;
 
         home.packages = with pkgs; [ 
+            # Development
             alacritty
-            fish
-            git
-            tmux
-            nerd-fonts.ubuntu-mono
-
-            # Neovim
-            neovim
-            gcc  # Required for compiling treesitter parsers
-            fzf  # Required by file picker fzf-lua
-            tree-sitter  # Needed for Neovim tree-sitter support after rewrite
-            fd  # fzf-lua optional dependency
-            ripgrep  # fzf-lua optional dependency
-
-            blender
             btop
-            discord
             fastfetch
-            gimp
+            fd
+            fish
+            fzf
+            gcc
+            git
             jujutsu
+            neovim
+            nerd-fonts.ubuntu-mono
+            ripgrep
+            rustup
+            tmux
+            tree-sitter
+
+            # Tools
             keepassxc
+            proton-vpn
+            yt-dlp
+
+            # Productivity
+            blender
+            gimp
             libreoffice
             lmstudio
             obsidian
-            openttd
-            proton-vpn
-            rustup
-            signal-desktop
             vlc
-            yt-dlp
+
+            # Messaging
+            discord
+            signal-desktop
+
+            # Games
+            openttd
         ];
 
+        # Dotfiles
         xdg.configFile = {
             "alacritty/alacritty.toml".source = ./dotfiles/alacritty/alacritty.toml;
             "fish/config.fish".source = ./dotfiles/fish/config.fish;
@@ -66,4 +73,5 @@
             };
         };
     };
+
 }
