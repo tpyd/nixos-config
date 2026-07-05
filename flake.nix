@@ -1,4 +1,5 @@
 {
+
     description = "NixOS configuration";
 
     inputs = {
@@ -7,15 +8,25 @@
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    outputs = { self, nixpkgs, home-manager, ... }: {
-        nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = { inherit home-manager; };
-            modules = [
+    outputs = { nixpkgs, home-manager, ... }:
+        let
+            commonModules = [
                 ./configuration.nix
-                ./hardware-laptop.nix
                 ./home.nix
             ];
+        in
+        {
+            nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                specialArgs = { inherit home-manager; };
+                modules = commonModules ++ [ ./hardware-desktop.nix ];
+            };
+
+            nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+                system = "x86_64-linux";
+                specialArgs = { inherit home-manager; };
+                modules = commonModules ++ [ ./hardware-laptop.nix ];
+            };
         };
-    };
+
 }
