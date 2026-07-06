@@ -22,7 +22,6 @@
 
     # Enable networking
     networking.hostName = "nixos";
-    networking.wireless.enable = true;
     networking.firewall.checkReversePath = false;  # TODO Required for VPN?
     networking.networkmanager.enable = true;
 
@@ -84,7 +83,6 @@
 
     # Other system packages
     environment.systemPackages = with pkgs; [
-        home-manager  # TODO necessary?
         gamescope
         gamescope-wsi
     ];

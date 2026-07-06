@@ -5,7 +5,7 @@
     ];
 
     home-manager.users.hades = { pkgs, ... }: {
-        home.stateVersion = "26.05";
+        home.stateVersion = "25.11";
         nixpkgs.config.allowUnfree = true;
 
         home.packages = with pkgs; [ 

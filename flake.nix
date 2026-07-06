@@ -12,7 +12,7 @@
         let
             commonModules = [
                 ./configuration.nix
-                ./home.nix
+                ./home-manager.nix
             ];
         in
         {
