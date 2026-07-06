@@ -22,7 +22,6 @@
 
     # Enable networking
     networking.hostName = "nixos";
-    networking.firewall.checkReversePath = false;  # TODO Required for VPN?
     networking.networkmanager.enable = true;
 
     # Set your time zone
