@@ -92,9 +92,6 @@
         isNormalUser = true;
         description = "hades";
         extraGroups = [ "networkmanager" "wheel" ];
-        packages = with pkgs; [
-            kdePackages.kate
-        ];
         shell = pkgs.fish;
     };
 

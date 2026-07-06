@@ -14,7 +14,6 @@
             btop
             fastfetch
             fd
-            fish
             fzf
             gcc
             git
