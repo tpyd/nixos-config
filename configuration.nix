@@ -24,6 +24,23 @@
     networking.hostName = "nixos";
     networking.networkmanager.enable = true;
 
+    # Enable bluetooth
+    hardware.bluetooth = {
+        enable = true;
+        powerOnBoot = true;
+        settings = {
+            General = {
+                # Shows battery charge of connected devices on supported
+                # Bluetooth adapters. Defaults to 'false'.
+                Experimental = true;
+                # When enabled other devices can connect faster to us, however
+                # the tradeoff is increased power consumption. Defaults to
+                # 'false'.
+                FastConnectable = true;
+            };
+        };
+    };
+
     # Set your time zone
     time.timeZone = "Europe/Oslo";
 
@@ -86,7 +103,7 @@
         gamescope-wsi
     ];
 
-    # Define a user account  # TODO necessary with home-manager?
+    # Define a user account
     users.users.hades = {
         isNormalUser = true;
         description = "hades";

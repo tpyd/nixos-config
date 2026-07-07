@@ -26,6 +26,8 @@
             tree-sitter
 
             # Tools
+            kdePackages.bluedevil
+            kdePackages.kcalc
             keepassxc
             proton-vpn
             yt-dlp
