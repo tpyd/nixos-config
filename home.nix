@@ -35,6 +35,7 @@
             gimp
             libreoffice
             lmstudio
+            obs-studio
             obsidian
             vlc
 
