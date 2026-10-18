@@ -12,6 +12,7 @@
             # Development
             alacritty
             btop
+            codex
             fastfetch
             fd
             fzf
