@@ -21,6 +21,7 @@
             jujutsu
             neovim
             nerd-fonts.ubuntu-mono
+            nh
             ripgrep
             rustup
             tmux
