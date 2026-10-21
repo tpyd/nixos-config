@@ -26,6 +26,7 @@
             rustup
             tmux
             tree-sitter
+            uv
 
             # Tools
             kdePackages.bluedevil
